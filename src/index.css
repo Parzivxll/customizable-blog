@@ -1,3 +1,14 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+* {
+  color: white;
+  font-family: "Ubuntu", sans-serif;
+}
+
+.text-white-stroke {
+  -webkit-text-stroke: 1px white;
+}
