@@ -1,5 +1,5 @@
 <template>
-    <section class="flex justify-between mb-4">
+    <section id="index" class="flex justify-between">
         <div class="w-[512px]">
             <h3 class="text-5xl mb-4 font-bold">
                 {{ name }}
@@ -7,6 +7,11 @@
             <p class="text-lg">
                 {{ description }}
             </p>
+            <div class="flex flex-wrap items-center mt-8 gap-2">
+                <IconButton class="px-4 py-2 rounded-3xl bg-c2 hover:brightness-125 transition"
+                    v-for="(link, i) in links" :key="i" :name="link.name" :icon="link.icon"
+                    iconClass="w-6 h-6 fill-white mr-2" />
+            </div>
         </div>
         <div class="relative w-64 h-64 p-3 bg-c2 flex items-center justify-center rounded-3xl">
             <img class="rounded-3xl h-full w-full" :src="profilePhoto" alt="Profile Photo" />
@@ -15,34 +20,45 @@
             </div>
         </div>
     </section>
-    <h3 class="text-2xl font-medium">I can do</h3>
-    <section class="flex mt-2 mb-16">
-        <h1 class="text-8xl cursor-pointer nav-header-text text-transparent transition-all hover:-mt-2">
-            Websites,
-        </h1>
-        <h1 class="text-8xl ml-12 cursor-pointer nav-header-text text-transparent transition-all hover:-mt-2">
-            Apps,
-        </h1>
-        <h1 class="text-8xl ml-12 cursor-pointer nav-header-text text-transparent transition-all hover:-mt-2">
-            Bots
-        </h1>
-    </section>
 </template>
 
 <script>
-export default {
+import { defineComponent } from "vue";
+import IconButton from "@/components/common/IconButton.vue";
+import GithubSvg from "@/assets/svg/github.svg"
+import DiscordSvg from "@/assets/svg/discord.svg"
+import MailSvg from "@/assets/svg/mail.svg"
+import LinkedInSvg from "@/assets/svg/linkedin.svg"
+
+export default defineComponent({
     name: 'Developer',
-    props: ['name', 'description', 'tag', 'profilePhoto']
-}
+    props: ['name', 'description', 'tag', 'profilePhoto'],
+
+    components: {
+        IconButton
+    },
+
+    data() {
+        return {
+            links: [
+                {
+                    name: "Github",
+                    icon: GithubSvg,
+                },
+                {
+                    name: "Discord",
+                    icon: DiscordSvg,
+                },
+                {
+                    name: "Mail",
+                    icon: MailSvg
+                },
+                {
+                    name: "LinkedIn",
+                    icon: LinkedInSvg
+                }
+            ]
+        }
+    }
+})
 </script>
-
-<style scoped>
-.nav-header-text {
-    -webkit-text-stroke: 2px #7c3aed;
-}
-
-.nav-header-text:hover {
-    -webkit-text-stroke: 2px white;
-    color: white;
-}
-</style>
