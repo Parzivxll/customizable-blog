@@ -3,8 +3,9 @@
         <span class="text-2xl font-medium">tech</span><span
             class="text-2xl text-white-stroke font-bold text-transparent">stack</span>
 
-        <div class="mt-4 grid grid-cols-12 gap-4">
-            <Card v-for="techstack in techstacks" :title="techstack.name" :image="techstack.image">
+        <div class="mt-4 flex gap-4">
+            <Card class="w-24 h-24 flex items-center justify-center" v-for="techstack in techstacks"
+                :title="techstack.name" :image="techstack.image">
                 <img :src="techstack.image" />
             </Card>
         </div>
