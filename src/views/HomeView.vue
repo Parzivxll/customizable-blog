@@ -1,8 +1,9 @@
 <template>
+  <Navbar />
   <main class="container mx-auto py-16 w-full">
     <Developer :tag="developer.tag" :description="developer.description" :name="developer.name"
       :profilePhoto="developer.profilePhoto" />
-    <Categories class="mt-8" />
+    <Categories class="mt-24 mb-8" />
     <Projects class="mt-12" />
     <Techstack class="mt-12" />
   </main>
@@ -13,6 +14,7 @@ import Developer from "../components/home/Developer.vue";
 import Projects from "../components/home/Projects.vue";
 import Techstack from "../components/home/Techstack.vue";
 import Categories from "../components/home/Categories.vue";
+import Navbar from "@/components/common/Navbar.vue";
 
 export default {
   name: "Home",
@@ -20,7 +22,8 @@ export default {
     Developer,
     Projects,
     Techstack,
-    Categories
+    Categories,
+    Navbar
   },
 
   computed: {
